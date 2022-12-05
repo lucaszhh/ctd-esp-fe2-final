@@ -1,5 +1,4 @@
-import React from "react";
-import Cita from "./features/quote/Cita";
+import Quote from "./features/quote/Quote";
 import "./App.css";
 import Bio from "./features/bio/Bio";
 import Noticias from "./features/news/Noticias";
@@ -13,7 +12,7 @@ function App() {
           alt="The-Simpsons"
           className="logo"
         />
-        <Cita />
+        <Quote />
       </header>
       <section className="App-bio">
         <Bio />

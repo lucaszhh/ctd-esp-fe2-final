@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../../app/store";
 import { ESTADO_FETCH } from "./constants";
-import { obtenerCita } from "./citaAPI";
+import { obtenerCita } from "./quoteAPI";
 import { ICita } from "./types";
 
 export interface EstadoCita {
@@ -27,7 +27,7 @@ export const obtenerCitaAsync = createAsyncThunk(
   }
 );
 
-export const citaSlice = createSlice({
+export const quoteSlice = createSlice({
   name: "citas",
   initialState,
   reducers: {
@@ -49,7 +49,7 @@ export const citaSlice = createSlice({
   },
 });
 
-export const { limpiar } = citaSlice.actions;
+export const { limpiar } = quoteSlice.actions;
 
 export const obtenerCitaDeLaAPI =
   (personaje: string) => (dispatch: AppDispatch) => {
@@ -60,4 +60,4 @@ export const obtenerCitaDeLaAPI =
 export const obtenerCitaDelEstado = (state: RootState) => state.cita.data;
 export const obtenerEstadoDelPedido = (state: RootState) => state.cita.estado;
 
-export default citaSlice.reducer;
+export default quoteSlice.reducer;
