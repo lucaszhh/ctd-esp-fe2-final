@@ -12,7 +12,7 @@ import { obtenerMensaje } from "./utils";
 
 function Quote() {
   const [valorInput, setValorInput] = useState("");
-  const { cita = "", personaje = "" } =
+  const { quote = "", personaje = "" } =
     useAppSelector(obtenerCitaDelEstado, shallowEqual) || {};
   const estadoPedido = useAppSelector(obtenerEstadoDelPedido);
 
@@ -27,7 +27,7 @@ function Quote() {
 
   return (
     <ContenedorCita>
-      <TextoCita>{obtenerMensaje(cita, estadoPedido)}</TextoCita>
+      <TextoCita>{obtenerMensaje(quote, estadoPedido)}</TextoCita>
       <AutorCita>{personaje}</AutorCita>
       <Input
         aria-label="Author Cita"
@@ -36,10 +36,10 @@ function Quote() {
         placeholder="Ingresa el nombre del autor"
       />
       <Boton
-        aria-label={valorInput ? "Obtener Cita" : "Obtener cita aleatoria"}
+        aria-label={valorInput ? "Obtener Cita" : "Obtener quote aleatoria"}
         onClick={onClickObtenerCita}
       >
-        {valorInput ? "Obtener Cita" : "Obtener cita aleatoria"}
+        {valorInput ? "Obtener Cita" : "Obtener quote aleatoria"}
       </Boton>
       <Boton aria-label="Borrar" onClick={onClickBorrar} secondary={true}>
         Borrar

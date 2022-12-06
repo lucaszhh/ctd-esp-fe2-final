@@ -6,9 +6,9 @@ import {
 } from "./constants";
 
 export const obtenerMensaje: (
-  cita: string,
+  quote: string,
   estadoPedido: ESTADO_FETCH
-) => string = (cita, estadoPedido) => {
+) => string = (quote, estadoPedido) => {
   if (estadoPedido === ESTADO_FETCH.CARGANDO) {
     return MENSAJE_CARGANDO;
   }
@@ -17,5 +17,5 @@ export const obtenerMensaje: (
     return NOMBRE_INVALIDO;
   }
 
-  return cita ? `${cita}` : NO_ENCONTRADO;
+  return quote ? `${quote}` : NO_ENCONTRADO;
 };

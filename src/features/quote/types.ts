@@ -1,6 +1,6 @@
 export interface ICita {
   personaje: string;
-  cita: string;
+  quote: string;
   imagen: string;
   direccionPersonaje: string;
 }
