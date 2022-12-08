@@ -1,22 +1,22 @@
 import { API_URL } from "../../app/constants";
-import { ICita } from "./types";
+import { IQuote } from "./types";
 
-export const obtenerCita: (personaje?: string) => Promise<ICita> = async (
-  personaje
+export const getQuote: (character?: string) => Promise<IQuote> = async (
+  character
 ) => {
-  if (personaje && parseInt(personaje)) {
-    throw new Error("El nombre debe ser un texto");
+  if (character && parseInt(character)) {
+    throw new Error("El name debe ser un texto");
   }
 
-  const url = personaje ? `${API_URL}?character=${personaje}` : API_URL;
-  const respuesta = await fetch(url);
-  const [data] = await respuesta.json();
+  const url = character ? `${API_URL}?character=${character}` : API_URL;
+  const response = await fetch(url);
+  const [data] = await response.json();
 
   const dataNormalizada = {
     quote: data.quote,
-    personaje: data.character,
-    imagen: data.image,
-    direccionPersonaje: data.characterDirection,
+    character: data.character,
+    image: data.image,
+    direccionCharacter: data.characterDirection,
   };
 
   return dataNormalizada;

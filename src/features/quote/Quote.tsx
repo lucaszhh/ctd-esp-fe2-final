@@ -1,24 +1,25 @@
+import React from "react";
 import { useState } from "react";
 import { shallowEqual } from "react-redux";
-import { Boton, Input, AutorCita, ContenedorCita, TextoCita } from "./styled";
+import { Button, Input, AutorQuote, ContainerQuote, TextoQuote } from "./styled";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
-  obtenerCitaDelEstado,
+  obtenerQuoteDelEstado,
   limpiar,
   obtenerEstadoDelPedido,
-  obtenerCitaDeLaAPI,
+  obtenerQuoteDeLaAPI,
 } from "./quoteSlice";
-import { obtenerMensaje } from "./utils";
+import { getMessage } from "./utils";
 
 function Quote() {
   const [valorInput, setValorInput] = useState("");
-  const { quote = "", personaje = "" } =
-    useAppSelector(obtenerCitaDelEstado, shallowEqual) || {};
+  const { quote = "", character = "" } =
+    useAppSelector(obtenerQuoteDelEstado, shallowEqual) || {};
   const estadoPedido = useAppSelector(obtenerEstadoDelPedido);
 
   const dispatch = useAppDispatch();
 
-  const onClickObtenerCita = () => dispatch(obtenerCitaDeLaAPI(valorInput));
+  const onClickObtenerQuote = () => dispatch(obtenerQuoteDeLaAPI(valorInput));
 
   const onClickBorrar = () => {
     dispatch(limpiar());
@@ -26,25 +27,25 @@ function Quote() {
   };
 
   return (
-    <ContenedorCita>
-      <TextoCita>{obtenerMensaje(quote, estadoPedido)}</TextoCita>
-      <AutorCita>{personaje}</AutorCita>
+    <ContainerQuote>
+      <TextoQuote>{getMessage(quote, estadoPedido)}</TextoQuote>
+      <AutorQuote>{character}</AutorQuote>
       <Input
-        aria-label="Author Cita"
+        aria-label="Author Quote"
         value={valorInput}
         onChange={(e) => setValorInput(e.target.value)}
-        placeholder="Ingresa el nombre del autor"
+        placeholder="Ingresa el name del autor"
       />
-      <Boton
-        aria-label={valorInput ? "Obtener Cita" : "Obtener quote aleatoria"}
-        onClick={onClickObtenerCita}
+      <Button
+        aria-label={valorInput ? "Obtener Quote" : "Obtener quote aleatoria"}
+        onClick={onClickObtenerQuote}
       >
-        {valorInput ? "Obtener Cita" : "Obtener quote aleatoria"}
-      </Boton>
-      <Boton aria-label="Borrar" onClick={onClickBorrar} secondary={true}>
+        {valorInput ? "Obtener Quote" : "Obtener quote aleatoria"}
+      </Button>
+      <Button aria-label="Borrar" onClick={onClickBorrar} secondary={true}>
         Borrar
-      </Boton>
-    </ContenedorCita>
+      </Button>
+    </ContainerQuote>
   );
 }
 export default Quote;

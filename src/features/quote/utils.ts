@@ -1,11 +1,11 @@
 import {
   ESTADO_FETCH,
-  NOMBRE_INVALIDO,
+  name_INVALIDO,
   MENSAJE_CARGANDO,
   NO_ENCONTRADO,
 } from "./constants";
 
-export const obtenerMensaje: (
+export const getMessage: (
   quote: string,
   estadoPedido: ESTADO_FETCH
 ) => string = (quote, estadoPedido) => {
@@ -14,7 +14,7 @@ export const obtenerMensaje: (
   }
 
   if (estadoPedido === ESTADO_FETCH.ERROR) {
-    return NOMBRE_INVALIDO;
+    return name_INVALIDO;
   }
 
   return quote ? `${quote}` : NO_ENCONTRADO;

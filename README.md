@@ -14,7 +14,7 @@ Examen Final de Frontend V
   - [Dependencias](#dependencias)
   - [Dependencias de Desarrollo](#dependencias-de-desarrollo)
 - [Entrega](#entrega)
-  - [Fecha de Entrega](#fecha-de-entrega)
+  - [Date de Entrega](#Date-de-entrega)
   - [Formato de Entrega](#formato-de-entrega)
 - [Guía para comenzar](#guía-para-comenzar)
   - [Paso 0 - Instalación](#paso-0---instalación)
@@ -71,8 +71,8 @@ Las siguientes funcionalidades son requisitos mínimos necesarios para la aproba
 
     En esta sección, el usuario cuenta con la posibilidad de obtener citas de Los Simpsons. Hay dos maneras:
 
-    - Primero, haciendo clic en el botón correspondiente sin ingresar ningún nombre en el input. Esto devuelve una cita al azar.
-    - Segundo, si se ingresa el nombre de un personaje antes de presionar el botón, la API devuelve una cita de ese personaje.
+    - Primero, haciendo clic en el botón correspondiente sin ingresar ningún name en el input. Esto devuelve una cita al azar.
+    - Segundo, si se ingresa el name de un personaje antes de presionar el botón, la API devuelve una cita de ese personaje.
 
     Por otra parte, si se ingresa un valor numérico, se muestra un mensaje de error. La funcionalidad está implementada con Redux Toolkit usando thunk para el request a la API.
 
@@ -94,7 +94,7 @@ Las siguientes funcionalidades son requisitos mínimos necesarios para la aproba
 
 ### _Seccion 3: Noticias._
 
-    Esta sección presenta un listado de noticias acerca de Los Simpsons. Cada noticia tiene una prop esPremium que determina si el usuario puede acceder a la misma o no.
+    Esta sección presenta un listado de noticias acerca de Los Simpsons. Cada noticia tiene una prop isPremium que determina si el usuario puede acceder a la misma o no.
 
     Si puede, al hacer clic en el botón “Ver más” se abre un modal con el detalle completo de la noticia.
     Si no, se abre un modal que invita al usuario a suscribirse.
@@ -139,7 +139,7 @@ Además, se podrán hacer uso de las siguientes dependencias adicionales para de
 
 ## Entrega
 
-### Fecha de Entrega
+### Date de Entrega
 
 Solo se admitirán entregas recibidas hasta el cierre de la clase 24, clase de Evaluación Final.
 
