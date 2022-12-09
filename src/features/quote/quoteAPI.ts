@@ -5,7 +5,7 @@ export const getQuote: (character?: string) => Promise<IQuote> = async (
   character
 ) => {
   if (character && parseInt(character)) {
-    throw new Error("El name debe ser un texto");
+    throw new Error("El nombre debe ser un texto");
   }
 
   const url = character ? `${API_URL}?character=${character}` : API_URL;
@@ -16,7 +16,7 @@ export const getQuote: (character?: string) => Promise<IQuote> = async (
     quote: data.quote,
     character: data.character,
     image: data.image,
-    direccionCharacter: data.characterDirection,
+    directionCharacter: data.characterDirection,
   };
 
   return dataNormalizada;

@@ -1,8 +1,8 @@
 import { INewsNormalizadas, INews } from "../types";
-import { data } from "./DataNews";
+import { data } from "./dataNews";
 import { useEffect, useState } from "react";
-import { capitalizeWord } from "../../../Utils/capitalizeWord";
-import { minuteSimulator } from "../../../Utils/minuteSimulator";
+import { wordCapitalizer } from "../../../utils/wordCapitalizer";
+import { simulateElapsedMinutes } from "../../../utils/timeSimulator";
 
 export const getNews: () => Promise<INews[]> = async () => {
   return new Promise((resolve) => {
@@ -12,7 +12,7 @@ export const getNews: () => Promise<INews[]> = async () => {
   });
 };
 
-export const fakeRest: () => INewsNormalizadas[] = () =>{
+export const useFakeRest: () => INewsNormalizadas[] = () =>{
   const [news, setNews] = useState<INewsNormalizadas[]>([]);
 
   useEffect(() => {
@@ -20,12 +20,12 @@ export const fakeRest: () => INewsNormalizadas[] = () =>{
       const response = await getNews();
       
       const data = response.map((n) => {
-        const title = capitalizeWord(n.title);
+        const title = wordCapitalizer(n.title);
         return {
           id: n.id,
           title,
           description: n.description,
-          date: `Hace ${minuteSimulator(n.date)} minutos`,
+          date: `Hace ${simulateElapsedMinutes(n.date)} minutos`,
           isPremium: n.isPremium,
           image: n.image,
           shortdescription: n.description.substring(0, 100),
@@ -37,4 +37,4 @@ export const fakeRest: () => INewsNormalizadas[] = () =>{
     getInformation();
   }, []);
   return news;
-}
+};

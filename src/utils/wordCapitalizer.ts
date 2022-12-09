@@ -3,7 +3,9 @@
  * @param text 
  * @returns string
  */
-export const capitalizeWord:(text: string) => string = (text) => {
+
+
+export const wordCapitalizer:(text: string) => string = (text) => {
   return text
     .split(" ")
     .map((str: string) => {

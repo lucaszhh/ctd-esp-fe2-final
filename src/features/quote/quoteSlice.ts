@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../../app/store";
-import { ESTADO_FETCH } from "./constants";
+import { STATE_FETCH } from "./constants";
 import { getQuote } from "./quoteAPI";
 import { IQuote } from "./types";
 
-export interface EstadoQuote {
+export interface StateQuote {
   data: IQuote | null;
-  estado: ESTADO_FETCH;
+  state: STATE_FETCH;
 }
 
-const initialState: EstadoQuote = {
+const initialState: StateQuote = {
   data: null,
-  estado: ESTADO_FETCH.INACTIVO,
+  state: STATE_FETCH.INACTIVE,
 };
 
 export const obtenerQuoteAsync = createAsyncThunk(
@@ -23,33 +23,33 @@ export const quoteSlice = createSlice({
   name: "Quotes",
   initialState,
   reducers: {
-    limpiar: () => initialState,
+    cleanUp: () => initialState,
   },
 
   extraReducers: (builder) => {
     builder
       .addCase(obtenerQuoteAsync.pending, (state) => {
-        state.estado = ESTADO_FETCH.CARGANDO;
+        state.state = STATE_FETCH.LOAD;
       })
       .addCase(obtenerQuoteAsync.fulfilled, (state, action) => {
-        state.estado = ESTADO_FETCH.INACTIVO;
+        state.state = STATE_FETCH.INACTIVE;
         state.data = action.payload;
       })
       .addCase(obtenerQuoteAsync.rejected, (state) => {
-        state.estado = ESTADO_FETCH.ERROR;
+        state.state = STATE_FETCH.ERROR;
       });
   },
 });
 
-export const { limpiar } = quoteSlice.actions;
+export const { cleanUp } = quoteSlice.actions;
 
 export const obtenerQuoteDeLaAPI =
   (character: string) => (dispatch: AppDispatch) => {
-    dispatch(limpiar());
+    dispatch(cleanUp());
     dispatch(obtenerQuoteAsync(character));
   };
 
-export const obtenerQuoteDelEstado = (state: RootState) => state.quote.data;
-export const obtenerEstadoDelPedido = (state: RootState) => state.quote.estado;
+export const getStateQuote = (state: RootState) => state.quote.data;
+export const getOrderStatus = (state: RootState) => state.quote.state;
 
 export default quoteSlice.reducer;

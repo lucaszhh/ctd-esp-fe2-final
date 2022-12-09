@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import * as styled from "../styled";
 import { INewsNormalizadas } from "../types";
 import { SuscribeImage, CloseButton as Close } from "../../../assets";
@@ -13,7 +13,7 @@ type Props = {
 const modalConstants = {
   title: "Suscríbete a nuestro Newsletter",
   description:"Suscríbete a nuestro newsletter y recibe news de nuestros personajes favoritos.",
-}
+};
 
 
 export const Modal = ({isPremium, modal, setModal}: Props) => {
@@ -34,23 +34,23 @@ export const Modal = ({isPremium, modal, setModal}: Props) => {
   return (
 
     <styled.ContainerModal>
-    <styled.CardModal>
-      <styled.CloseButton onClick={() => setModal(null)}>
-        <img src={Close} alt="close-button" />
-      </styled.CloseButton>
-      <styled.ImageModal 
-      src={imgSrc} 
-      alt={imgAlt} />
-      <styled.ContainerText>
-        <styled.TitleModal>{titleModal}</styled.TitleModal>
-        <styled.DescriptionModal>{descriptionModal}</styled.DescriptionModal>
-        {isPremium && 
+      <styled.CardModal>
+        <styled.CloseButton onClick={() => setModal(null)}>
+          <img src={Close} alt="close-button" />
+        </styled.CloseButton>
+        <styled.ImageModal 
+          src={imgSrc} 
+          alt={imgAlt} />
+        <styled.ContainerText>
+          <styled.TitleModal>{titleModal}</styled.TitleModal>
+          <styled.DescriptionModal>{descriptionModal}</styled.DescriptionModal>
+          {isPremium && 
         <styled.ButtonSuscribe
           onClick={() => alertSuscription()}>
           Suscríbete
         </styled.ButtonSuscribe>}
-      </styled.ContainerText>
-    </styled.CardModal>
-  </styled.ContainerModal>
-  )
-}
+        </styled.ContainerText>
+      </styled.CardModal>
+    </styled.ContainerModal>
+  );
+};
