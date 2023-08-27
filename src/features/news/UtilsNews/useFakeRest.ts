@@ -28,7 +28,7 @@ export const useFakeRest: () => INewsNormalizadas[] = () =>{
           date: `Hace ${simulateElapsedMinutes(n.date)} minutos`,
           isPremium: n.isPremium,
           image: n.image,
-          shortdescription: n.description.substring(0, 100),
+          shortDescription: n.description.substring(0, 100),
         };
       });
       setNews(data);

@@ -14,7 +14,7 @@ export const OneNew = ({ oneNew, setModal }: Props) => {
       <styled.TitleCardNew>{oneNew.title}</styled.TitleCardNew>
       <styled.DateCardNew>{oneNew.date}</styled.DateCardNew>
       <styled.DescriptionCardNew>
-        {oneNew.shortdescription}
+        {oneNew.shortDescription}
       </styled.DescriptionCardNew>
       <styled.ButtonLectura onClick={() => setModal(oneNew)}>Ver más</styled.ButtonLectura>
     </styled.CardNew>

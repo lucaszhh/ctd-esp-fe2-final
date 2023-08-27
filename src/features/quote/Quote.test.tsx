@@ -53,14 +53,13 @@ describe("render quote to input search", () =>{
     setupRender();
     const quoteButton = await screen.findByLabelText("Obtener cita aleatoria");
     const inputSearch = await screen.findByPlaceholderText("Ingresa el nombre del autor");
+    
     await userEvent.clear(inputSearch);
     fireEvent.click(quoteButton);
-    waitFor(async () =>{
-      const textQuote = await screen.findByText("Oh, so they have Internet on computers now!");
-      const authorQuote = await screen.findByText("Homer Simpson");
-      expect(textQuote).toBeInTheDocument();
-      expect(authorQuote).toBeInTheDocument();
-    });
+
+    expect(screen.findByText("Oh, so they have Internet on computers now!")).toBeInTheDocument();
+    expect(screen.findByText("Homer Simpson")).toBeInTheDocument();
+
   });
 
   it("render quote message when use author value in input search", async () => {
@@ -70,11 +69,8 @@ describe("render quote to input search", () =>{
     await userEvent.clear(inputSearch);
     fireEvent.change(inputSearch, { target: { value: "Homer Simpson" } });
     fireEvent.click(quoteButton);
-    waitFor( async () =>{
-      const textQuote = await screen.findByText("Oh, so they have Internet on computers now!");
-      const authorQuote = await screen.findByText("Homer Simpson");
-      expect(textQuote).toBeInTheDocument();
-      expect(authorQuote).toBeInTheDocument();
-    });
+    expect(screen.findByText("Oh, so they have Internet on computers now!")).toBeInTheDocument();
+    expect(screen.findByText("Homer Simpson")).toBeInTheDocument();
+
   });
 });  

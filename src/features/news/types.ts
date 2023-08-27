@@ -5,7 +5,7 @@ export interface INewsNormalizadas {
     date: number | string;
     isPremium: boolean;
     image: string;
-    shortdescription?: string;
+    shortDescription?: string;
 }
 
 export interface INews {
