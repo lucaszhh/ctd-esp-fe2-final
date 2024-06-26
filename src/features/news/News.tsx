@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { INewsNormalizadas } from "./types";
 import * as styled from "./styled";
-import { RenderNews } from "./componentsNews/RenderNews";
-import RenderModal from "./componentsNews/RenderModal";
+import { RenderNews } from "./ComponentsNews/RenderNews";
+import RenderModal from "./ComponentsNews/RenderModal";
 
 
 export const News = () =>{

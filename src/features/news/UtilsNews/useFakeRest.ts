@@ -1,5 +1,5 @@
 import { INewsNormalizadas, INews } from "../types";
-import { data } from "./dataNews";
+import { data } from "./DataNews";
 import { useEffect, useState } from "react";
 import { wordCapitalizer } from "../../../utils/wordCapitalizer";
 import { simulateElapsedMinutes } from "../../../utils/timeSimulator";

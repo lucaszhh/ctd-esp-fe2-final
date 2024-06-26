@@ -1,5 +1,5 @@
 import React from "react";
-import { useFakeRest } from "../utilsNews/useFakeRest";
+import { useFakeRest } from "../UtilsNews/useFakeRest";
 import { OneNew } from "./OneNew";
 import { INewsNormalizadas } from "../types";
 
